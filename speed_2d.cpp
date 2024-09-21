@@ -16,7 +16,7 @@ double gettime()
 
 int main(int argc, char *argv[])
 {
-    int nx = 256, ny = 256, n_batch = 1, max_times = 1 << 30;
+    int nx = 512, ny = 512, n_batch = 2048, max_times = 1 << 30;
     double t_min = 4;
     char opt_c = 0;
     while (EOF != (opt_c = getopt(argc, argv, "x:y:b:m:")))
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
         doit_2d(i);
         run_time = gettime() - t1;
         iter = i;
-        if (run_time > t_min)
+        if (i >= 8 && run_time > t_min)
             break;
         // printf("%d\n", iter);
     }

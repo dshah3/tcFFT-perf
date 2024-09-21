@@ -1158,11 +1158,11 @@ void tcfftCreate(tcfftHandle *plan, int nx, int ny, int n_batch)
     const int n_cont_256 = 32;
     const int n_cont_512 = 16;
     const int n_cont_1024 = 8;
-    plan->layer_0[0] = layer_256_0<n_cont_256, num_warp>;
-    plan->layer_0[1] = layer_512_0<n_cont_512, num_warp>;
-    plan->layer_0[2] = layer_1024_0<n_cont_1024, num_warp>;
-    plan->layer_1[0] = layer_256_1<n_cont_256, num_warp>;
-    plan->layer_1[1] = layer_512_1<n_cont_512, num_warp>;
+    plan->layer_0[0] = layer_256_0_A100<n_cont_256, num_warp>;
+    plan->layer_0[1] = layer_512_0_A100<n_cont_512, num_warp>;
+    plan->layer_0[2] = layer_1024_0_A100<n_cont_1024, num_warp>;
+    plan->layer_1[0] = layer_256_1_A100<n_cont_256, num_warp>;
+    plan->layer_1[1] = layer_512_1_A100<n_cont_512, num_warp>;
     // radices
     switch (nx)
     {
